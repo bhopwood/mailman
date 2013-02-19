@@ -90,12 +90,14 @@ module Mailman
 
           callback = Proc.new do |modified, added, removed|
             added.each do |new_file|
-              message = Maildir::Message.new(@maildir, "new/#{new_file}")
+              # message = Maildir::Message.new(@maildir, "new/#{new_file}")
+              message = Maildir::Message.new(@maildir, "#{new_file}")
               @processor.process_maildir_message(message)
             end
           end
 
-          @listener = Listen.to(File.join(@maildir.path, 'new'), :relative_paths => true).change(&callback)
+          # @listener = Listen.to(File.join(@maildir.path, 'new'), :relative_paths => true).change(&callback)
+          @listener = Listen.to(@maildir.path, :relative_paths => true).change(&callback)
           @listener.start
         end
       end
