@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.summary     = 'A incoming email processing microframework'
   s.description = 'Mailman makes it easy to process incoming emails with a simple routing DSL'
   # s.signing_key   = File.expand_path('~/.gem_keys/gem-private_key.pem')
-  # s.cert_chain    = ['.gem_cert.pem']
+  s.cert_chain    = ['.gem_cert.pem']
 
   s.rubyforge_project = 'mailman'
 
